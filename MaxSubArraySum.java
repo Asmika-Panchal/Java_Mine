@@ -49,6 +49,31 @@ public static void kadanes(int numbers[]){
     System.out.println("our max array sum: "+ms);
 }
 
+    public int maxSubArray(int[] nums) {
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for(int i = 0; i < nums.length; i++){
+            currSum = currSum+nums[i];
+            if(currSum<0){
+                currSum = 0;
+            }
+            maxSum = Math.max(currSum, maxSum);
+        }
+        //All negative or 0 case
+        if(maxSum == 0){
+            maxSum = Integer.MIN_VALUE;
+            
+            for(int i = 0; i < nums.length; i++){
+                if(nums[i] == 0){
+                    return 0;
+                }
+                maxSum = Math.max(maxSum, nums[i]);
+            }
+            return maxSum;
+        }
+        return maxSum;
+    }
+
    public static void main(String args[]){
    // int numbers[]={2,4,6,8,10};
    int numbers[]={-2,-3,4,-1,-2,1,5,-3};
