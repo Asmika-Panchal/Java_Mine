@@ -72,6 +72,9 @@ public class twoDArray {
        }
 
       public static boolean staircasesearchSorted(int matrix[][],int key){
+        //int row= matrix.length-1 , col=0; (if 32 is used)
+        // while(row >= 0 && col < matrix[0].length)
+
         int row=0, col=matrix[0].length-1;
         while(row< matrix.length && col >=0){
             if(matrix[row][col]==key){
@@ -89,6 +92,45 @@ public class twoDArray {
         System.out.println("key not found");
         return false;
       }
+      //Print the number of 7’s that are inthe 2d array
+      public static int sevenes(int array[][]){
+        int count=0;
+        for(int i=0;i<array.length;i++){
+            for(int j=0;j< array[0].length;j++){
+                if(array[i][j]==7){
+                    count++;
+                }
+            }
+        }
+        return count;
+      }
+
+      //Print out the sum of the numbers inthe second row of the “nums” array
+      public static int sum2rows(int nums[][]){
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            if(i==1){
+                for(int j=0;j< nums[0].length;j++){
+                    sum = sum+ nums[i][j];
+            }
+            }
+            
+        }
+        return sum;
+      }
+
+      //transpose of matrix
+      public int[][] transpose(int[][] matrix) {
+        int rows= matrix.length;
+        int columns= matrix[0].length;
+        int new_Matrix[][]= new int [columns][rows];
+        for(int i=0;i< rows;i++){
+            for(int j=0;j< columns;j++){
+                new_Matrix[j][i]=matrix[i][j];
+            }
+        }
+        return new_Matrix;
+    }
     public static void main(String args[]){
     //    int matrix[][] =new int[3][3];
     //     Scanner sc=new Scanner(System.in);
@@ -118,6 +160,17 @@ public class twoDArray {
                                 {27,29,37,48},
                                 {32,33,39,50}};
                                 int key=33;
-                                staircasesearchSorted(matrix,key);
+                              //  staircasesearchSorted(matrix,key);
+                                
+        int[][] array = {
+            {4, 7, 8},
+            {8, 8, 7}
+        };
+       // System.out.println(sevenes(array));
+
+       int[][] nums = { {1,4,9},
+                        {11,4,3},
+                        {2,2,3} };
+                        System.out.println("Sum: "+sum2rows(nums));
     }
 }
