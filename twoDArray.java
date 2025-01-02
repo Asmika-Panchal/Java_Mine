@@ -47,6 +47,46 @@ public class twoDArray {
             System.out.println();
         }
 
+//         59. Spiral Matrix II
+// Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.
+public int[][] generateMatrix(int n) {
+    int matrix[][]=new int[n][n];
+    int startRow=0;
+    int startCol=0;
+    int endRow= n-1;
+    int endCol=n-1;
+    int k=1;
+    while(startRow<= endRow && startCol<=endCol){
+        //top
+        for(int j=startCol; j<=endCol;j++){
+            matrix[startRow][j]= k++;
+        }
+        //right
+        for(int i=startRow+1; i<=endRow;i++){
+            matrix[i][endCol]= k++;
+        }
+        //bottom
+        for(int j=endCol-1; j>=startCol;j--){
+            if(startRow== endRow)
+                break;
+            matrix[endRow][j]= k++;
+        }
+
+        //left
+        for(int i=endRow-1; i>=startCol+1;i--){
+            if(startCol== endCol)
+                break;
+            matrix[i][startCol]= k++;
+        }
+        startRow++;
+        endRow--;
+        startCol++;
+        endCol--;
+    }
+return matrix;
+}
+
+
        public static int diagonalSum(int matrix[][]){
 
         // int sum=0;
@@ -131,6 +171,37 @@ public class twoDArray {
         }
         return new_Matrix;
     }
+
+//     //48.rotate image You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+// You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+
+ 
+    class Solution {
+        public void rotate(int[][] matrix) {
+            int n = matrix.length;
+        //swap
+        
+         for( int i=0;i<n;i++){
+            for(int j=i; j<n;j++){
+                int temp=matrix[i][j];
+                matrix[i][j]=matrix[j][i];
+                matrix[j][i]=temp;
+            }
+         }
+         //reverse
+        for(int i=0;i<n;i++){
+            int start=0, end=n-1;
+            while(start<=end){
+             int temp=matrix[i][start];
+            matrix[i][start]= matrix[i][end];
+             matrix[i][end]=temp;
+             start++;
+             end--;
+            }
+        }
+        }
+    }
+    
     public static void main(String args[]){
     //    int matrix[][] =new int[3][3];
     //     Scanner sc=new Scanner(System.in);

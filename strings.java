@@ -101,7 +101,7 @@ public static String capitalizeTitle(String s) {
     return ans;
 }
 
-//also this approach
+//also this approach- Capitalize the Title
 class Solution {
     public String capitalizeTitle(String title) {
         String[] words = title.split(" ");
@@ -121,6 +121,20 @@ class Solution {
         return result.toString().trim();
     }
 }
+//Count  Vowel Strings in a string
+public static int countVowel(String s){
+    int count=0;
+    for(int i=0;i<s.length();i++){
+        char ch=s.charAt(i);
+        if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u'){
+            count++;
+        }
+        
+
+    }
+    return count;
+}
+
     public static void main(String[] args) {
     //    char arr[]={'a','b','c','d'};
     //     String str="abcd";
@@ -162,12 +176,14 @@ class Solution {
         // System.out.println(largest);
 
 
-        StringBuilder sb= new StringBuilder("");
-        // sb.toString();
-        for(char ch='a';  ch<='z';ch++){
-            sb.append(ch);
-        }
-        System.out.println(sb.length());
+        // StringBuilder sb= new StringBuilder("");
+        // // sb.toString();
+        // for(char ch='a';  ch<='z';ch++){
+        //     sb.append(ch);
+        // }
+        // System.out.println(sb.length());
+        String s= new Scanner(System.in).next();
+        System.out.println(countVowel(s));
     }
 
 }
